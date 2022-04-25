@@ -8,9 +8,9 @@ const router = express.Router();
 
 router
     .route('/')
-    .get(auth(), playController.getAllQuestions);
+    .get( playController.getAllQuestions);
 
 router
     .route('/submit')
-    .post(auth(), validate(playValidation.submitQuestion), playController.submitQuestions);
+    .post( validate(playValidation.submitQuestion), playController.submitQuestions);
 module.exports = router;

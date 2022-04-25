@@ -8,12 +8,12 @@ const router = express.Router();
 
 router
     .route('/')
-    .post(auth('manageQuestions'), validate(questionValidation.createQuestion), questionController.createQuestion)
-    .get(auth('getQuestions'), questionController.getAllQuestion);
+  .post(auth('manageQuestions'), validate(questionValidation.createQuestion), questionController.createQuestion)
+  .get(auth('getQuestions'), questionController.getAllQuestion);
 router
     .route('/:questionID')
-    .get(auth('getQuestions'), validate(questionValidation.getQuestion), questionController.getQuestionById)
-    .patch(auth('manageQuestions'), validate(questionValidation.updateQuestion), questionController.updateQuestion)
-    .delete(auth('manageQuestions'), validate(questionValidation.deleteQuestion), questionController.deleteQuestion);
+    .get( validate(questionValidation.getQuestion), questionController.getQuestionById)
+    .patch( validate(questionValidation.updateQuestion), questionController.updateQuestion)
+    .delete( validate(questionValidation.deleteQuestion), questionController.deleteQuestion);
 
 module.exports = router;
